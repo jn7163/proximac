@@ -30,7 +30,7 @@
 conf_t conf;
 FILE* logfile = NULL;
 uv_loop_t* loop = NULL;
-int log_to_file = 1;
+int log_to_file = 0;
 int gSocket = -1;
 int gSocket_for_release = -1;
 

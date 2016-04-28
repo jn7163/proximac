@@ -514,7 +514,7 @@ proximac_tcp_detach_cb(void * cookie, socket_t so)
     assert(cookie);
     // free cookie
     _FREE(cookie, M_TEMP);
-    LOGI("Proximac TCP filter has been detached from a socket");
+    /* LOGI("Proximac TCP filter has been detached from a socket"); */
 }
 
 static errno_t
@@ -573,7 +573,7 @@ proximac_tcp_connect_out_cb(
     find_pid.pid = proximac_cookie->pidhash_value;
     lck_rw_lock_exclusive(g_pidlist_lock);
     struct pid *exist = RB_FIND(pid_tree, &pid_list, &find_pid);
-    LOGI("after RB_FIND pid = %d pid_num %d\n", find_pid.pid, g_pid_num);
+    /* LOGI("after RB_FIND pid = %d pid_num %d\n", find_pid.pid, g_pid_num); */
     lck_rw_unlock_exclusive(g_pidlist_lock);
     
     if (exist != NULL) {
@@ -613,8 +613,8 @@ proximac_tcp_attach_cb(void ** cookie, socket_t so)
     proc_selfname(proc_name, 63);
     proximac_cookie->pid = proc_selfpid();
     proximac_cookie->pidhash_value = pid_hash(proc_name);
-    LOGI("pid hash value = %d proc_name = %s\n", proximac_cookie->pidhash_value, proc_name);
-    LOGI("Proximac TCP filter has been attached to a socket");
+    /* LOGI("pid hash value = %d proc_name = %s\n", proximac_cookie->pidhash_value, proc_name); */
+    /* LOGI("Proximac TCP filter has been attached to a socket"); */
     return 0;
 }
 
