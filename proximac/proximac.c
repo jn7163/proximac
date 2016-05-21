@@ -631,7 +631,7 @@ proximac_tcp_notify_cb(void *cookie, socket_t so, sflt_event_t event, void *para
             // added prepend proximac_hdr for proximac
             
             if (proximac_cookie->forward_flag == 1) {
-                LOGI("notify_cb -- do hook operations to pid");
+                LOGI("notify_cb -- do hook operations to pid %d", proximac_cookie->pid);
                 mbuf_t proximac_hdr_data = NULL;
                 mbuf_t proximac_hdr_control = NULL;
                 errno_t retval;
